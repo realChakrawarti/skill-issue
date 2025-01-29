@@ -54,7 +54,7 @@ function romanToInt(s: string): number {
 
 // Tests
 
-const input = ["III", "LVIII", "MCMXCIV"];
+const input = ["III", "LVIII", "MCMXCIV", "MMMCMXCIV"];
 
 input.forEach((item) => {
   console.log(romanToInt(item));
