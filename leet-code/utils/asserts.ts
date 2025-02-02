@@ -6,9 +6,13 @@ const yellow = "\x1b[33m"; // Added yellow for input
 const reset = "\x1b[0m";
 const bold = "\x1b[1m";
 
+function isArray<T>(item: T | T[]): item is T[] {
+  return Array.isArray(item);
+}
+
 export default function asserts<T, R>(
-  input: T[],
-  testFn: (value: T) => R,
+  input: T[] | T[][],
+  testFn: (...value: T[]) => R,
   output: R[]
 ) {
   const startTime = performance.now(); // Start timing the assertion
@@ -18,7 +22,12 @@ export default function asserts<T, R>(
   }
 
   input.forEach((item, idx) => {
-    const returnedOutput = testFn(item);
+    let returnedOutput;
+    if (isArray(item)) {
+      returnedOutput = testFn(...item);
+    } else {
+      returnedOutput = testFn(item);
+    }
 
     try {
       assertEquals(returnedOutput, output[idx]);
