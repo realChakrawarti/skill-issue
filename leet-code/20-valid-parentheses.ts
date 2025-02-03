@@ -48,7 +48,17 @@ function isValid(s: string): boolean {
 
 // Tests
 
-const input = ["]", "()", "()[]{}", "(]", "([])", "([)]", "){", "(){}}{", "(}{)"];
+const input = [
+  "]",
+  "()",
+  "()[]{}",
+  "(]",
+  "([])",
+  "([)]",
+  "){",
+  "(){}}{",
+  "(}{)",
+];
 const output = [false, true, true, false, true, false, false, false, false];
 
-asserts(input, isValid, output);
+asserts(input, false, isValid, output);

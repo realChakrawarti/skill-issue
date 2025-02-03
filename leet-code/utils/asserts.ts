@@ -6,12 +6,13 @@ const yellow = "\x1b[33m"; // Added yellow for input
 const reset = "\x1b[0m";
 const bold = "\x1b[1m";
 
-function isArray<T>(item: T | T[]): item is T[] {
-  return Array.isArray(item);
+function isArrayAndSpread<T>(item: T | T[], spread: boolean): item is T[] {
+  return Array.isArray(item) && spread;
 }
 
 export default function asserts<T, R>(
   input: T[] | T[][],
+  spread: boolean = false,
   testFn: (...value: T[]) => R,
   output: R[]
 ) {
@@ -23,7 +24,7 @@ export default function asserts<T, R>(
 
   input.forEach((item, idx) => {
     let returnedOutput;
-    if (isArray(item)) {
+    if (isArrayAndSpread(item, spread)) {
       returnedOutput = testFn(...item);
     } else {
       returnedOutput = testFn(item);

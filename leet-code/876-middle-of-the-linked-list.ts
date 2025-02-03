@@ -37,6 +37,6 @@ const output = [
 const actualInput = input.map((item) => arrayToLinkedList(item));
 const actualOutput = output.map((item) => arrayToLinkedList(item));
 
-asserts(actualInput, middleNode, actualOutput);
+asserts(actualInput, false, middleNode, actualOutput);
 
 // middleNode(actualInput[0]);

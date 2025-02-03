@@ -64,4 +64,4 @@ output.forEach((item) => {
   actualOutput.push(arrayToLinkedList(item));
 });
 
-asserts(actualInput, mergeTwoLists, actualOutput);
+asserts(actualInput, true, mergeTwoLists, actualOutput);
