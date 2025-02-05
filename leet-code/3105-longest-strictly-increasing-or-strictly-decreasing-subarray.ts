@@ -62,5 +62,3 @@ const input = [
 const output = [2, 1, 3];
 
 asserts(input, false, longestMonotonicSubarray, output);
-
-// console.log(longestMonotonicSubarray([1, 4, 5, 3, 2, 3]));
